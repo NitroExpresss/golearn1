@@ -33,6 +33,8 @@ func main() {
 	if err != nil { // Handle errors reading the config file
 		panic(fmt.Errorf("fatal error config file: %s", err))
 	}
+	V.BindEnv("dbuser")
+	V.BindEnv("dbpassword")
 	var psqlInfo = fmt.Sprintf("host=%s port=%d user=%s "+
 		"password=%s dbname=%s sslmode=disable",
 		V.Get("dbhost"), V.Get("dbport"), V.Get("dbuser"), V.GetString("dbpassword"), V.Get("dbname"))
