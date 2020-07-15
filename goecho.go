@@ -4,10 +4,12 @@ import (
 	"database/sql"
 	"fmt"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/labstack/echo"
 	_ "github.com/lib/pq"
+	"github.com/spf13/viper"
 )
 
 // User from db
@@ -27,17 +29,26 @@ const (
 	dbname     = "gotesting"
 )
 
-var psqlInfo = fmt.Sprintf("host=%s port=%d user=%s "+
-	"password=%s dbname=%s sslmode=disable",
-	dbhost, dbport, dbuser, dbpassword, dbname)
-
 var db *sql.DB
 
+//V - viper instance
+var V = viper.New()
+
 func main() {
-	var err error
+	V.SetConfigName("dbconfig")
+	V.SetConfigType("yaml")
+	V.AddConfigPath(".")
+	err := V.ReadInConfig()
+	if err != nil { // Handle errors reading the config file
+		panic(fmt.Errorf("fatal error config file: %s", err))
+	}
+	var psqlInfo = fmt.Sprintf("host=%s port=%d user=%s "+
+		"password=%s dbname=%s sslmode=disable",
+		V.Get("dbhost"), V.Get("dbport"), V.Get("dbuser"), "6655", V.Get("dbname"))
 	db, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
+		os.Exit(5)
 	}
 	defer db.Close()
 
