@@ -20,14 +20,6 @@ type User struct {
 	Email     string
 }
 
-const (
-	dbhost     = "localhost"
-	dbport     = 5432
-	dbuser     = "postgres"
-	dbpassword = "6655"
-	dbname     = "gotesting"
-)
-
 var db *sql.DB
 
 //V - viper instance
