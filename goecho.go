@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"fmt"
 	"net/http"
-	"os"
 	"strconv"
 
 	"github.com/labstack/echo"
@@ -48,7 +47,6 @@ func main() {
 	db, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
-		os.Exit(5)
 	}
 	defer db.Close()
 
