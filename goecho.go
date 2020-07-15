@@ -35,7 +35,7 @@ func main() {
 	}
 	var psqlInfo = fmt.Sprintf("host=%s port=%d user=%s "+
 		"password=%s dbname=%s sslmode=disable",
-		V.Get("dbhost"), V.Get("dbport"), V.Get("dbuser"), "6655", V.Get("dbname"))
+		V.Get("dbhost"), V.Get("dbport"), V.Get("dbuser"), V.GetString("dbpassword"), V.Get("dbname"))
 	db, err = sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
