@@ -1,6 +1,6 @@
 
-dbhost: localhost
-dbport: 5432
+host: localhost
+port: 5432
 dbuser: "Use your ENV Variable"
 dbpassword: "use your ENV Variable"
-dbname: gotesting
+name: gotesting
