@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"golearn/handlers"
+	"golearn1/services/users/handlers"
 
 	"github.com/labstack/echo"
 )
@@ -15,5 +15,6 @@ func Init() *echo.Echo {
 	e.GET("/users/upd/:id", handlers.UpdateUser)
 	e.GET("/users/del/:id", handlers.DeleteUser)
 	e.GET("/", handlers.Greeting)
+	e.GET("/users/articles/:id", handlers.GetUserArticles)
 	return e
 }

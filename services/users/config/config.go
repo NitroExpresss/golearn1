@@ -2,7 +2,7 @@ package config
 
 import (
 	"fmt"
-	"golearn/structs"
+	"golearn1/services/users/structs"
 
 	"github.com/spf13/viper"
 )

@@ -2,7 +2,7 @@ package models
 
 import (
 	"context"
-	"golearn/config"
+	"golearn1/services/articles/config"
 
 	"github.com/go-pg/pg/v10"
 )

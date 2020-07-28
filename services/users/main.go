@@ -1,9 +1,9 @@
 package main
 
 import (
-	"golearn/config"
-	"golearn/models"
-	"golearn/routes"
+	"golearn1/services/users/config"
+	"golearn1/services/users/models"
+	"golearn1/services/users/routes"
 )
 
 func main() {
